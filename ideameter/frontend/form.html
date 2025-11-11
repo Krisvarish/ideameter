@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluate Your Idea - IdeaMeter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">IdeaMeter</a>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="form-container">
+                <h1 class="form-title">Evaluate Your Startup Idea</h1>
+                <p class="form-subtitle">Answer these questions to get your investment readiness score.</p>
+
+                <form id="evaluateForm">
+                    <!-- Startup Name -->
+                    <div class="form-group">
+                        <label for="startupName" class="form-label">Startup Name *</label>
+                        <input 
+                            type="text" 
+                            id="startupName" 
+                            class="form-input" 
+                            placeholder="e.g., CloudSync"
+                            required
+                            maxlength="100"
+                        >
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">One-Line Description *</label>
+                        <input 
+                            type="text" 
+                            id="description" 
+                            class="form-input" 
+                            placeholder="e.g., Real-time collaboration platform for distributed teams"
+                            required
+                            minlength="20"
+                            maxlength="200"
+                        >
+                        <small class="form-help">20-200 characters</small>
+                    </div>
+
+                    <!-- Industry -->
+                    <div class="form-group">
+                        <label for="industry" class="form-label">Industry *</label>
+                        <select id="industry" class="form-select" required>
+                            <option value="">Select industry...</option>
+                            <option value="SaaS">SaaS</option>
+                            <option value="FinTech">FinTech</option>
+                            <option value="HealthTech">HealthTech</option>
+                            <option value="EdTech">EdTech</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="AI/ML">AI/ML</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Stage -->
+                    <div class="form-group">
+                        <label class="form-label">Current Stage *</label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="stage" value="1" required>
+                                <div class="radio-content">
+                                    <span class="radio-icon">💡</span>
+                                    <span class="radio-title">Idea</span>
+                                    <span class="radio-desc">Concept only</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="stage" value="2" required>
+                                <div class="radio-content">
+                                    <span class="radio-icon">🛠️</span>
+                                    <span class="radio-title">MVP</span>
+                                    <span class="radio-desc">Building prototype</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="stage" value="3" required>
+                                <div class="radio-content">
+                                    <span class="radio-icon">🚀</span>
+                                    <span class="radio-title">Traction</span>
+                                    <span class="radio-desc">Have users</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="stage" value="4" required>
+                                <div class="radio-content">
+                                    <span class="radio-icon">💰</span>
+                                    <span class="radio-title">Revenue</span>
+                                    <span class="radio-desc">Generating income</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Team Experience -->
+                    <div class="form-group">
+                        <label for="teamExperience" class="form-label">Team Experience *</label>
+                        <select id="teamExperience" class="form-select" required>
+                            <option value="">Select experience level...</option>
+                            <option value="1">No startup experience</option>
+                            <option value="2">1-2 years experience</option>
+                            <option value="3">3-5 years experience</option>
+                            <option value="4">5-10 years experience</option>
+                            <option value="5">10+ years experience</option>
+                        </select>
+                    </div>
+
+                    <!-- Funding Ask -->
+                    <div class="form-group">
+                        <label for="fundingAsk" class="form-label">Funding Ask *</label>
+                        <select id="fundingAsk" class="form-select" required>
+                            <option value="">Select amount...</option>
+                            <option value="0">Not raising / Bootstrapping</option>
+                            <option value="50000">$50K</option>
+                            <option value="100000">$100K</option>
+                            <option value="250000">$250K</option>
+                            <option value="500000">$500K</option>
+                            <option value="1000000">$1M</option>
+                            <option value="2000000">$2M</option>
+                            <option value="5000000">$5M+</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            Get My Score
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Loading State -->
+                <div id="loadingState" class="loading-state" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing your startup...</p>
+                </div>
+
+                <!-- Error State -->
+                <div id="errorState" class="error-state" style="display: none;">
+                    <p class="error-message"></p>
+                    <button class="btn btn-secondary" onclick="location.reload()">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/form.js"></script>
+</body>
+</html>
